@@ -1,4 +1,5 @@
 import {Show, UserButton } from '@clerk/nextjs';
+import {ModeToggle} from "@/components/web/theme-toggle";
 
 const Dashboard = () => {
 
@@ -8,6 +9,7 @@ const Dashboard = () => {
             <Show when="signed-in">
                 <UserButton />
             </Show>
+            <ModeToggle />
         </div>
     )
 }
