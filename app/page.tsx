@@ -1,208 +1,169 @@
 import Link from "next/link";
 import { GraduationCap, BookOpen, Sparkles, Users } from "lucide-react";
+import { ModeToggle } from "@/components/web/theme-toggle";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-100" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-blue-100/40 blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
+      <section className="relative overflow-hidden border-b border-border/40">
+        <div className="absolute inset-0 bg-linear-to-br from-blue-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-20">
           {/* Navbar */}
           <header className="flex items-center justify-between mb-16">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-blue-600 flex items-center justify-center shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
-                <p className="text-lg font-semibold tracking-tight">
+                <p className="text-lg font-bold tracking-tight">
                   Learning Studio
                 </p>
-                <p className="text-sm text-gray-500">
-                  Personalized teaching support
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                  Personalized teaching
                 </p>
               </div>
             </div>
 
-            <nav className="flex items-center gap-3">
+            <nav className="flex items-center gap-6">
               <Link
                 href="/sign-in"
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+                className="text-sm font-medium text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition"
               >
                 Sign In
               </Link>
               <Link
                 href="/sign-up"
-                className="px-5 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition shadow-sm"
+                className="px-5 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition shadow-md shadow-blue-600/20"
               >
-                Sign Up
+                Get Started
               </Link>
+              <div className="border-l border-border pl-6">
+                <ModeToggle />
+              </div>
             </nav>
           </header>
 
           {/* Hero Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm text-blue-700 shadow-sm mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 dark:border-blue-900/50 bg-blue-50/50 dark:bg-blue-900/20 px-4 py-2 text-sm text-blue-700 dark:text-blue-300 mb-8">
                 <Sparkles className="w-4 h-4" />
-                Designed for thoughtful, differentiated teaching
+                <span className="font-medium">New: AI-Driven Lesson Differentiation</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                A modern space for
-                <span className="text-blue-600"> personalized learning </span>
-                design.
+              <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                Personalize your <br/>
+                <span className="text-blue-600 bg-clip-text">teaching </span>
+                experience.
               </h1>
 
-              <p className="mt-6 text-lg text-gray-600 leading-8">
-                Support teachers in planning learning experiences that respond to
-                student needs, learning differences, and classroom goals with a
-                clear, elegant, and practical workflow.
+              <p className="text-xl text-muted-foreground leading-relaxed mb-10">
+                Plan learning experiences that respond to student needs and classroom goals with a clear, elegant, and AI-powered workflow.
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/sign-up"
-                  className="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm text-center"
+                  className="px-8 py-4 rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-xl shadow-blue-600/25 text-center"
                 >
-                  Get Started
+                  Start Planning Free
                 </Link>
                 <Link
                   href="/sign-in"
-                  className="px-6 py-3 rounded-xl border border-gray-300 bg-white text-gray-800 font-medium hover:bg-gray-50 transition text-center"
+                  className="px-8 py-4 rounded-2xl border border-border bg-card hover:bg-accent transition text-center font-semibold"
                 >
-                  Sign In
+                  View Demo
                 </Link>
-              </div>
-
-              <div className="mt-10 flex items-center gap-8 text-sm text-gray-500">
-                <div>
-                  <p className="font-semibold text-gray-900">Teacher-first</p>
-                  <p>Simple and practical flow</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Minimal UI</p>
-                  <p>Focused on clarity</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Scalable</p>
-                  <p>Ready for future features</p>
-                </div>
               </div>
             </div>
 
-            {/* Right Showcase Card */}
-            <div className="relative">
-              <div className="rounded-3xl border border-gray-200 bg-white shadow-xl shadow-slate-200/50 p-6 md:p-8">
-                <div className="flex items-center justify-between mb-8">
+            {/* Showcase Card */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-linear-to-r from-blue-600 to-cyan-500 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+              <div className="relative rounded-[2rem] border border-border bg-card p-8 md:p-10 shadow-2xl">
+                <div className="flex items-center justify-between mb-10">
                   <div>
-                    <p className="text-sm text-gray-500">Today’s focus</p>
-                    <h2 className="text-xl font-semibold mt-1">
-                      Differentiated Lesson Planning
-                    </h2>
+                    <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Active Module</p>
+                    <h2 className="text-2xl font-bold">Differentiated Plan</h2>
                   </div>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
-                    <BookOpen className="w-6 h-6 text-blue-600" />
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950 flex items-center justify-center">
+                    <BookOpen className="w-7 h-7 text-blue-600" />
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
-                    <p className="text-sm text-gray-500 mb-1">Objective</p>
-                    <p className="font-medium text-gray-900">
-                      Build student understanding through flexible learning paths
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
-                    <p className="text-sm text-gray-500 mb-1">Support</p>
-                    <p className="font-medium text-gray-900">
-                      Adjust content, process, and output for diverse learners
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
-                    <p className="text-sm text-gray-500 mb-1">Class insight</p>
-                    <p className="font-medium text-gray-900">
-                      Organize learner profiles and plan with greater intention
-                    </p>
-                  </div>
+                  {[
+                    { label: "Objective", text: "Flexible learning paths for Grade 8 Math" },
+                    { label: "Strategy", text: "Scaffolded content for diverse readiness levels" },
+                  ].map((item, i) => (
+                    <div key={i} className="rounded-2xl bg-muted/50 p-5 border border-border/50">
+                      <p className="text-xs font-semibold text-muted-foreground mb-1 uppercase">{item.label}</p>
+                      <p className="font-medium">{item.text}</p>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="rounded-2xl border border-gray-100 p-4">
+                  <div className="rounded-2xl border border-border p-5 bg-background/50">
                     <Users className="w-5 h-5 text-blue-600 mb-3" />
-                    <p className="font-medium text-gray-900">Student Profiles</p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Understand learner readiness and preferences
-                    </p>
+                    <p className="font-bold text-sm">Student Profiles</p>
+                    <p className="text-xs text-muted-foreground mt-1">Ready-to-use insights</p>
                   </div>
-
-                  <div className="rounded-2xl border border-gray-100 p-4">
+                  <div className="rounded-2xl border border-border p-5 bg-background/50">
                     <Sparkles className="w-5 h-5 text-blue-600 mb-3" />
-                    <p className="font-medium text-gray-900">Smart Planning</p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Turn teaching ideas into structured plans
-                    </p>
+                    <p className="font-bold text-sm">AI Assistant</p>
+                    <p className="text-xs text-muted-foreground mt-1">Smart suggestions</p>
                   </div>
                 </div>
               </div>
-
-              <div className="absolute -z-10 -bottom-6 -right-6 w-40 h-40 rounded-full bg-blue-100/50 blur-3xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Feature Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-sm font-medium text-blue-600 mb-3">
-            Why Learning Studio
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Built for meaningful classroom practice
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-4">
+            Platform Features
           </h2>
-          <p className="mt-4 text-gray-600 text-lg">
-            A focused platform that helps teachers plan more intentionally
-            without unnecessary complexity.
+          <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+            Built for meaningful classroom practice
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            A focused platform that helps teachers plan more intentionally without the overwhelming complexity of traditional tools.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-5">
-              <BookOpen className="w-6 h-6 text-blue-600" />
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              icon: <BookOpen className="w-6 h-6 text-blue-600" />,
+              title: "Smart Planning",
+              desc: "Create lesson plans that automatically adapt to different student readiness levels."
+            },
+            {
+              icon: <Users className="w-6 h-6 text-blue-600" />,
+              title: "Learner Awareness",
+              desc: "Centralize student data to ensure every plan is grounded in real classroom diversity."
+            },
+            {
+              icon: <Sparkles className="w-6 h-6 text-blue-600" />,
+              title: "AI Co-Pilot",
+              desc: "Get intelligent suggestions for activities, scaffolding, and assessment strategies."
+            }
+          ].map((feature, i) => (
+            <div key={i} className="group p-8 rounded-[2rem] border border-border bg-card hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 transition duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                {feature.icon}
+              </div>
+              <h4 className="text-xl font-bold mb-3">{feature.title}</h4>
+              <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Lesson Planning</h3>
-            <p className="text-gray-600 leading-7">
-              Create lesson plans with a structure that supports differentiated
-              instruction and practical classroom use.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-5">
-              <Users className="w-6 h-6 text-blue-600" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Learner Awareness</h3>
-            <p className="text-gray-600 leading-7">
-              Keep student needs visible so planning decisions are grounded in
-              real classroom diversity.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-5">
-              <Sparkles className="w-6 h-6 text-blue-600" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Elegant Workflow</h3>
-            <p className="text-gray-600 leading-7">
-              Minimal interface, clear navigation, and a calm visual design that
-              supports focused work.
-            </p>
-          </div>
+          ))}
         </div>
       </section>
     </main>
