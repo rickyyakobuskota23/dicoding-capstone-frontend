@@ -19,7 +19,7 @@ export default function DashboardLayout({
         <Navbar onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="flex-1 overflow-auto bg-muted/10">
-          <div className="container mx-auto p-4 lg:p-8">
+          <div className="container mx-auto p-4 lg:p-6">
              {children}
           </div>
         </main>
