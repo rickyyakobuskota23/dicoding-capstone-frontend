@@ -4,6 +4,7 @@ import "./globals.css";
 
 import {ClerkProvider} from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider"
+import React from "react";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",

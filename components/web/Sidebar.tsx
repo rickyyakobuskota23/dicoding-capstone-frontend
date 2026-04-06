@@ -23,22 +23,22 @@ import {Show, UserButton} from "@clerk/nextjs";
 
 const navItems = [
   { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { path: "/dashboard/lesson-plans", label: "My Lesson Plans", icon: FileText },
-  { path: "/dashboard/ai-generator", label: "AI Lesson Generator", icon: Sparkles },
+  { path: "/lesson-plans", label: "My Lesson Plans", icon: FileText },
+  { path: "/ai-generator", label: "AI Lesson Generator", icon: Sparkles },
   {
     type: "section",
     label: "Management",
     items: [
-      { path: "/dashboard/management-overview", label: "Overview", icon: LayoutGrid },
-      { path: "/dashboard/class-management", label: "Classes", icon: School },
-      { path: "/dashboard/teacher-management", label: "Teachers", icon: UserCheck },
-      { path: "/dashboard/student-management", label: "Students", icon: UsersRound },
+      { path: "/management-overview", label: "Overview", icon: LayoutGrid },
+      { path: "/class-management", label: "Classes", icon: School },
+      { path: "/teacher-management", label: "Teachers", icon: UserCheck },
+      { path: "/student-management", label: "Students", icon: UsersRound },
     ]
   },
-  { path: "/dashboard/student-profiles", label: "Student Profiles", icon: Users },
-  { path: "/dashboard/analytics", label: "Learning Analytics", icon: BarChart3 },
-  { path: "/dashboard/resources", label: "Resource Library", icon: Library },
-  { path: "/dashboard/settings", label: "Settings", icon: Settings },
+  { path: "/student-profiles", label: "Student Profiles", icon: Users },
+  { path: "/analytics", label: "Learning Analytics", icon: BarChart3 },
+  { path: "/resources", label: "Resource Library", icon: Library },
+  { path: "/settings", label: "Settings", icon: Settings },
 ];
 
 interface SidebarProps {
@@ -128,8 +128,8 @@ function NavItem({ item, active }: { item: any; active: boolean }) {
         className={cn(
           "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-sm font-medium",
           active
-            ? "bg-primary/10 text-primary"
-            : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            ? "bg-blue-50 text-blue-600"
+            : "text-muted-foreground hover:bg-blue-50"
         )}
       >
         <item.icon className="w-5 h-5" />
