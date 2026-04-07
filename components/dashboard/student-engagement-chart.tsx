@@ -68,7 +68,7 @@ export function StudentEngagementChart({
             <Line
               type="monotone"
               dataKey="engagement"
-              stroke="#2563eb"
+              stroke= "#2563eb"
               strokeWidth={2}
               dot={{ fill: "#2563eb" }}
               name="Engagement %"

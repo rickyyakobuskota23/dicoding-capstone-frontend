@@ -19,7 +19,7 @@ export function AiSuggestionsCard({
   suggestions,
 }: AiSuggestionsCardProps) {
   return (
-    <Card className="border-blue-100 bg-linear-to-br from-blue-50 to-purple-50 shadow-sm dark:border-blue-900">
+    <Card className="border-blue-100 bg-linear-to-br from-blue-50 to-purple-50 shadow-sm dark:bg-linear-to-br dark:from-blue-900 dark:to-blue-500 dark:border-blue-900">
       <CardHeader>
         <div className="flex items-center gap-2">
           <Sparkles className="h-5 w-5 text-blue-600" />
