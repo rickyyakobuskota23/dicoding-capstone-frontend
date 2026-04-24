@@ -1,0 +1,71 @@
+import type { LessonPlan, LessonPlanStat } from "@/types/lesson-plan";
+
+export const lessonPlans: LessonPlan[] = [
+  {
+    id: "lp-001",
+    title: "Introduction to Fractions",
+    subject: "Mathematics",
+    grade: "Grade 5",
+    date: "2026-03-12",
+    studentsCount: 24,
+    status: "active",
+    color: "blue",
+  },
+  {
+    id: "lp-002",
+    title: "Story Elements & Character Analysis",
+    subject: "Reading",
+    grade: "Grade 5",
+    date: "2026-03-10",
+    studentsCount: 24,
+    status: "completed",
+    color: "purple",
+  },
+  {
+    id: "lp-003",
+    title: "Plant Life Cycles",
+    subject: "Science",
+    grade: "Grade 5",
+    date: "2026-03-08",
+    studentsCount: 24,
+    status: "completed",
+    color: "green",
+  },
+  {
+    id: "lp-004",
+    title: "The American Revolution",
+    subject: "Social Studies",
+    grade: "Grade 5",
+    date: "2026-03-05",
+    studentsCount: 24,
+    status: "active",
+    color: "orange",
+  },
+  {
+    id: "lp-005",
+    title: "Adding & Subtracting Decimals",
+    subject: "Mathematics",
+    grade: "Grade 5",
+    date: "2026-03-03",
+    studentsCount: 24,
+    status: "draft",
+    color: "blue",
+  },
+  {
+    id: "lp-006",
+    title: "Persuasive Writing Techniques",
+    subject: "Writing",
+    grade: "Grade 5",
+    date: "2026-03-01",
+    studentsCount: 24,
+    status: "active",
+    color: "pink",
+  },
+];
+
+export const lessonPlanStats: LessonPlanStat[] = [
+  { label: "Total Plans", value: 32 },
+  { label: "Active", value: 12 },
+  { label: "Completed", value: 18 },
+  { label: "Drafts", value: 2 },
+];
