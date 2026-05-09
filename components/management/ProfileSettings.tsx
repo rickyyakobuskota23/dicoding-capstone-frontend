@@ -18,10 +18,10 @@ export const ProfileSettings = ({ profile, setProfile }: ProfileSettingsProps) =
 
     <div className="p-6 space-y-6">
       <div className="flex items-center gap-6">
-        <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+        <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
           {profile.avatar}
         </div>
-        <Button className="px-4 py-2 border border-border rounded-lg hover:bg-muted transition text-sm font-medium text-foreground">
+        <Button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-bold shadow-lg shadow-blue-100 dark:shadow-none">
           Change Photo
         </Button>
       </div>
