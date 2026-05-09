@@ -33,12 +33,10 @@ const navItems = [
       { path: "/class-management", label: "Classes", icon: School },
       { path: "/teacher-management", label: "Teachers", icon: UserCheck },
       { path: "/student-management", label: "Students", icon: UsersRound },
+      { path: "/resources", label: "Resource Library", icon: Library },
+      { path: "/settings", label: "Settings", icon: Settings },
     ]
-  },
-  { path: "/student-profiles", label: "Student Profiles", icon: Users },
-  { path: "/analytics", label: "Learning Analytics", icon: BarChart3 },
-  { path: "/resources", label: "Resource Library", icon: Library },
-  { path: "/settings", label: "Settings", icon: Settings },
+  }
 ];
 
 interface SidebarProps {
@@ -87,7 +85,7 @@ export function Sidebar({ open, setOpen }: SidebarProps) {
             {navItems.map((item, index) => {
               if (item.type === "section" && "items" in item) {
                 return (
-                  <li key={`section-${index}`} className="mb-4">
+                  <li key={`section-${index}`} className="gap-3">
                     <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                       {item.label}
                     </div>

@@ -26,7 +26,7 @@ export default function LessonPlansPage() {
   }, [search]);
 
   return (
-    <section className="mx-auto w-full max-w-400 space-y-8 p-6 md:p-8">
+    <section className="mx-auto w-full max-w-400 space-y-8">
       <LessonPlansPageHeader />
 
       <LessonPlansToolbar
