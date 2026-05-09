@@ -36,10 +36,9 @@ export function LessonGeneratorForm({
   return (
     <div className="flex h-full flex-col border-r border-border bg-white">
       {/* Header */}
-      <div className="border-b border-border p-6">
+      <div className="border-b border-border">
         <div className="mb-2 flex items-center gap-2">
-          <Sparkles className="h-6 w-6 text-blue-600" />
-          <h1 className="text-2xl font-semibold">AI Lesson Generator</h1>
+          <h1 className="text-3xl font-semibold">AI Lesson Generator</h1>
         </div>
         <p className="text-sm text-slate-600">
           Generate differentiated lesson plans powered by AI
@@ -47,7 +46,7 @@ export function LessonGeneratorForm({
       </div>
 
       {/* Form Content */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-8">
+      <div className="flex-1 overflow-y-auto pt-6 space-y-8">
         {/* Basic Information */}
         <section className="space-y-4">
           <h3 className="text-sm font-medium text-slate-900">Basic Information</h3>
