@@ -15,7 +15,7 @@ export function LessonPlansPageHeader() {
       </div>
 
       <Button asChild className="h-11 rounded-lg bg-blue-600">
-        <Link href="/dashboard/ai-generator">
+        <Link href="/ai-generator">
           <Plus className="mr-2 h-4 w-4" />
           Create New Plan
         </Link>
