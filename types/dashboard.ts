@@ -57,7 +57,6 @@ export interface ClassOverviewItem {
 }
 
 export interface DashboardData {
-  greetingName: string;
   greetingTitle: string;
   greetingSubtitle: string;
   stats: DashboardStat[];

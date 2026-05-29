@@ -1,3 +1,5 @@
+"use client";
+
 import { AiSuggestionsCard } from "@/components/dashboard/ai-suggestions-card";
 import { ClassOverviewCard } from "@/components/dashboard/class-overview-card";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
@@ -7,11 +9,11 @@ import { StatsGrid } from "@/components/dashboard/stats-grid";
 import { StudentEngagementChart } from "@/components/dashboard/student-engagement-chart";
 import { TeachingPlansCard } from "@/components/dashboard/teaching-plans-card";
 import { dashboardData } from "@/data/dashboard-data";
+import { useUser } from "@clerk/nextjs";
 
 const Dashboard = () => {
-
+    const { user } = useUser();
     const {
-    greetingName,
     greetingTitle,
     greetingSubtitle,
     stats,
@@ -27,7 +29,7 @@ const Dashboard = () => {
         <div>
           <DashboardHeader
             title={greetingTitle}
-            name={greetingName}
+            name={user?.firstName || "Jane"}
             subtitle={greetingSubtitle}
           />
 

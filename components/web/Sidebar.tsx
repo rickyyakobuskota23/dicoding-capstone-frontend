@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {Show, UserButton} from "@clerk/nextjs";
+import {Show, UserButton, useUser} from "@clerk/nextjs";
 
 const navItems = [
   { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -46,6 +46,7 @@ interface SidebarProps {
 
 export function Sidebar({ open, setOpen }: SidebarProps) {
   const pathname = usePathname();
+  const { user } = useUser();
 
   return (
     <>
@@ -108,7 +109,9 @@ export function Sidebar({ open, setOpen }: SidebarProps) {
               <UserButton />
             </Show>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground truncate">Jane Doe</p>
+              <p className="text-sm font-medium text-foreground truncate">
+                {user?.fullName || "Jane Doe"}
+              </p>
               <p className="text-xs text-muted-foreground truncate">Grade 5 Teacher</p>
             </div>
           </div>

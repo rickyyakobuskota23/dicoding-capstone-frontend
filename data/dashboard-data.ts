@@ -8,7 +8,6 @@ import {
 import type { DashboardData } from "@/types/dashboard";
 
 export const dashboardData: DashboardData = {
-  greetingName: "Jane",
   greetingTitle: "Good morning",
   greetingSubtitle: "Here's what's happening with your class-management today.",
   stats: [
