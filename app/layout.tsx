@@ -4,6 +4,7 @@ import "./globals.css";
 
 import {ClerkProvider} from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
 import React from "react";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -42,6 +43,7 @@ export default function RootLayout({
         >
           <ClerkProvider>
             {children}
+            <Toaster />
           </ClerkProvider>
         </ThemeProvider>
       </body>

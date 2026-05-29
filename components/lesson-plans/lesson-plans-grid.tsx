@@ -3,9 +3,10 @@ import { LessonPlanCard } from "@/components/lesson-plans/lesson-plan-card";
 
 interface LessonPlansGridProps {
   plans: LessonPlan[];
+  onDelete: (id: string) => void;
 }
 
-export function LessonPlansGrid({ plans }: LessonPlansGridProps) {
+export function LessonPlansGrid({ plans, onDelete }: LessonPlansGridProps) {
   if (plans.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
@@ -22,7 +23,7 @@ export function LessonPlansGrid({ plans }: LessonPlansGridProps) {
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3">
       {plans.map((plan) => (
-        <LessonPlanCard key={plan.id} plan={plan} />
+        <LessonPlanCard key={plan.id} plan={plan} onDelete={onDelete} />
       ))}
     </div>
   );

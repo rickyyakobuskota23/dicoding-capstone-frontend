@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const LessonGeneratorEmptyState = () => {
   return (
-    <div className="h-full flex items-center justify-center p-8 bg-slate-50/50">
+    <div className="h-full flex items-center justify-center p-8 bg-white">
       <div className="max-w-2xl w-full text-center space-y-8 animate-in fade-in zoom-in duration-500">
 
         {/* Hero Section */}

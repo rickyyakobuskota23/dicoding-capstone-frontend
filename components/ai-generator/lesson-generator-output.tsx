@@ -24,6 +24,12 @@ interface LessonGeneratorOutputProps {
       materials: string[];
     };
     objectives: string[];
+    differentiation?: {
+      content?: string | null;
+      process?: string | null;
+      product?: string | null;
+      environment?: string | null;
+    };
     activities: {
       tier: string;
       title: string;
@@ -32,10 +38,11 @@ interface LessonGeneratorOutputProps {
     }[];
   };
   formData: LessonGeneratorFormData;
-  onSave: () => void;
+  onSave: (status?: string) => void;
+  onEdit: () => void;
 }
 
-export function LessonGeneratorOutput({ plan, formData, onSave }: LessonGeneratorOutputProps) {
+export function LessonGeneratorOutput({ plan, formData, onSave, onEdit }: LessonGeneratorOutputProps) {
   return (
     <div className="p-8 max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500">
       {/* Action Header */}
@@ -45,14 +52,14 @@ export function LessonGeneratorOutput({ plan, formData, onSave }: LessonGenerato
           <p className="text-sm text-slate-500 mt-1">Review and customize your AI-generated materials</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" onClick={onEdit}>
             <FileText className="w-4 h-4 mr-2" /> Edit
           </Button>
           <Button variant="outline" size="sm">
             <Download className="w-4 h-4 mr-2" /> PDF
           </Button>
-          <Button onClick={onSave} className="bg-blue-600 hover:bg-blue-700 text-white" size="sm">
-            <Save className="w-4 h-4 mr-2" /> Save
+          <Button onClick={() => onSave("draft")} className="bg-blue-600 hover:bg-blue-700 text-white" size="sm">
+            <Save className="w-4 h-4 mr-2" /> Save as Draft
           </Button>
           <Button className="bg-purple-600 hover:bg-purple-700 text-white" size="sm">
             <Send className="w-4 h-4 mr-2" /> Assign
@@ -113,6 +120,52 @@ export function LessonGeneratorOutput({ plan, formData, onSave }: LessonGenerato
             </ul>
           </CardContent>
         </Card>
+
+        {/* 🧠 Differentiation Strategies */}
+        {plan.differentiation && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {plan.differentiation.content && (
+              <Card className="border-l-4 border-l-blue-500">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-bold text-slate-500 uppercase tracking-wider">Content Differentiation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-slate-700 leading-relaxed">{plan.differentiation.content}</p>
+                </CardContent>
+              </Card>
+            )}
+            {plan.differentiation.process && (
+              <Card className="border-l-4 border-l-purple-500">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-bold text-slate-500 uppercase tracking-wider">Process Differentiation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-slate-700 leading-relaxed">{plan.differentiation.process}</p>
+                </CardContent>
+              </Card>
+            )}
+            {plan.differentiation.product && (
+              <Card className="border-l-4 border-l-green-500">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-bold text-slate-500 uppercase tracking-wider">Product Differentiation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-slate-700 leading-relaxed">{plan.differentiation.product}</p>
+                </CardContent>
+              </Card>
+            )}
+            {plan.differentiation.environment && (
+              <Card className="border-l-4 border-l-orange-500">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-bold text-slate-500 uppercase tracking-wider">Environment Differentiation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-slate-700 leading-relaxed">{plan.differentiation.environment}</p>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        )}
 
         {/* ✨ Differentiated Activities */}
         <div className="space-y-4">

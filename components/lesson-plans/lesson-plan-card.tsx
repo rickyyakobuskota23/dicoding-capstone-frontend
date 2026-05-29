@@ -1,11 +1,17 @@
 import Link from "next/link";
-import { Calendar, MoreVertical, Users } from "lucide-react";
+import { Calendar, MoreVertical, Users, Edit, Trash2 } from "lucide-react";
 import {
   Card,
   CardContent,
   CardHeader,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import type { LessonPlan } from "@/types/lesson-plan";
 import {
   formatLessonPlanDate,
@@ -16,29 +22,53 @@ import {
 
 interface LessonPlanCardProps {
   plan: LessonPlan;
+  onDelete: (id: string) => void;
 }
 
-export function LessonPlanCard({ plan }: LessonPlanCardProps) {
+export function LessonPlanCard({ plan, onDelete }: LessonPlanCardProps) {
   return (
-    <Link href={`/dashboard/lesson-editor/${plan.id}`} className="group block">
+    <Link href={`/lesson-plans/${plan.id}/edit`} className="group block">
       <Card className="overflow-hidden rounded-2xl border-slate-200 transition-all duration-200 hover:border-blue-200 hover:shadow-lg">
         <CardHeader
           className={`relative h-32 bg-linear-to-br ${getSubjectGradient(plan.color)} p-6`}
         >
           <div className="absolute right-4 top-4">
-            <Button
-              type="button"
-              aria-label="button details"
-              size="icon"
-              variant="ghost"
-              className="h-9 w-9 rounded-lg bg-white/20 text-white backdrop-blur hover:bg-white/30 hover:text-white hover:cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-              }}
-            >
-              <MoreVertical className="h-4 w-4" />
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  type="button"
+                  aria-label="button details"
+                  size="icon"
+                  variant="ghost"
+                  className="h-9 w-9 rounded-lg bg-white/20 text-white backdrop-blur hover:bg-white/30 hover:text-white hover:cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                >
+                  <MoreVertical className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <Link href={`/lesson-plans/${plan.id}/edit`} className="cursor-pointer">
+                    <Edit className="mr-2 h-4 w-4" />
+                    <span>Edit Plan</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="text-red-600 focus:text-red-600 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onDelete(plan.id);
+                  }}
+                >
+                  <Trash2 className="mr-2 h-4 w-4" />
+                  <span>Delete Plan</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           <div className="max-w-[85%] text-white">
