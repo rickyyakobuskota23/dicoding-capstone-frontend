@@ -56,6 +56,7 @@ export default function Signin() {
           </div>
 
           <SignIn
+            forceRedirectUrl="/dashboard"
             appearance={{
               elements: {
                 formButtonPrimary: "bg-blue-600 hover:bg-blue-700 text-sm normal-case",
