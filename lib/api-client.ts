@@ -21,7 +21,7 @@ export const useApi = () => {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.details || errorData.error || "API request failed");
+      throw new Error(errorData.detail || errorData.details || errorData.error || "API request failed");
     }
 
     if (response.status === 204) {
